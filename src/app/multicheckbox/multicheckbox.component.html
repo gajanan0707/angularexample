@@ -1,0 +1,26 @@
+<div class='container'>
+  <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+
+    <div *ngFor="let data of Data; let i=index">
+      <label>
+        <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+        {{data.name}}
+      </label>
+    </div>
+  
+    <p class="error" *ngIf="this.form.controls['checkArray'].errors?.required">
+      Checkbox is required, select atleast one value.
+    </p>
+  
+    <input type="submit" value="Submit">
+  </form>
+  
+</div><br>
+<div class="container">
+  <app-file-upload></app-file-upload>
+</div>
+
+
+
+
+

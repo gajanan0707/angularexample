@@ -1,0 +1,39 @@
+
+<div class='container'>
+  <app-loading-spinner *ngIf=!showSpinner></app-loading-spinner>
+  <div *ngIf="!authService.userData">
+    <h1 *ngIf=!showSpinner >Please Login For Search the Songs</h1>
+  </div>
+
+    <form class="form-inline" *ngIf="authService.userData">
+      <div class="form-group" >
+        <input type="search"
+               class="form-control"
+               placeholder="Enter search string"
+               #search>
+      </div>
+      <button type="button"  class="btn btn-primary" (click)="doSearch(search.value)">Search</button>
+    </form>
+    <hr/>
+    
+    <div class="text-center">
+      <p class="lead" *ngIf="loading">Loading...</p>
+    </div>
+    <ul class="list-group" #htmlData>
+      <li class="list-group-item"
+          *ngFor="let track of itunes.results">
+        <img src="{{track.thumbnail}}">
+        <a target="_blank"
+           href="{{track.link}}">{{ track.track }}
+        </a>
+       
+      </li>
+    </ul>
+    <div class=" text-center">
+      <!-- <button class="btn btn-success btn-block" (click)="openPDF()">Open PDF</button> -->
+      <button class="btn btn-danger btn-block" (click)="downloadPDF()">Download PDF</button>
+    </div>
+  </div>
+ 
+  
+

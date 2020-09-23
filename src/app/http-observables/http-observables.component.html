@@ -1,0 +1,31 @@
+<div class="container">
+    <h1 >Search Your Coutry Flag Here</h1>
+    <form>
+      <div class="form-group search-bar">
+        <!-- Search -->
+        <input type="text" class="form-control" placeholder="Search..." #searchBox (input)="search(searchBox.value)">
+  
+        <!-- Progres -->
+        <div class="loader" *ngIf="loading">
+          <div class="c-three-dots-loader"></div>
+        </div>
+      </div>
+  
+      <!-- Search Result -->
+      <div class="list-group">
+        <div class="list-group-item list-group-item-action" *ngFor="let country of countries$ | async">
+          <div class="media">
+            <img class="flagclass" src="{{country.flag}}" class="mr-3" alt="...">
+            <div class="media-body">
+              <p class="mt-0">CountryName -- {{ country.name }}</p>
+              <p class="mt-0">Countrycapital -- {{ country.capital }}</p>
+              <p class="mt-0">Countryregion -- {{ country.region }}</p>
+              <p class="mt-0">Countrytimezones -- {{ country.timezones }}</p>
+              <p class="mt-0">CountrynativeName -- {{ country.nativeName }}</p>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

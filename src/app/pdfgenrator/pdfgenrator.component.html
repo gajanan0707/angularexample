@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-md-8" id="htmlData" #htmlData>
+        <table class="table table-bordered">
+          <tr class="table-primary">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+          <tr *ngFor="let user of USERS">
+            <th>{{user.id}}</th>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+          </tr>
+        </table>
+      </div>
+  
+      <div class="col-md-4 text-right">
+        <!-- <button class="btn btn-success btn-block" (click)="openPDF()">Open PDF</button> -->
+        <button class="btn btn-danger btn-block" (click)="downloadPDF()">Download PDF</button>
+      </div>
+  
+    </div>
+  </div>

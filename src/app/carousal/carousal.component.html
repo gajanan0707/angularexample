@@ -1,0 +1,20 @@
+<ngb-carousel (slide)="slideActivate($event)">
+    <ng-template ngbSlide >
+      <div class="picsum-img-wrapper">
+        <img src="https://source.unsplash.com/6oUsyeYXgTg" alt="Angular Carousel 1">
+      </div>
+      <div class="carousel-caption">
+        <h3>Title Goes Here</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="https://source.unsplash.com/2FdIvx7sy3U" alt="Angular Carousel 2">
+      </div>
+      <div class="carousel-caption">
+        <h3>Title Goes Here</h3>
+        <p>Consectetur tortor volutpat pretium.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>

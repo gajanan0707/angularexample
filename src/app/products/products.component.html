@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row productclass">
+        <div class="col-sm-4" *ngFor="let products of Products">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{products.name}}</h5>
+                    <p class="card-text">{{products.description}}</p>
+                    <a [routerLink]="['/product-detail/', products.id]" class="btn btn-danger">Check Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
