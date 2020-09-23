@@ -1,50 +1,59 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- <a class="navbar-brand" [routerLink]="['home']">iTunes Search App</a> -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['home']">
-          Home
-        </a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['search']">Search Songs</a>
-      </li>
-      <li class="nav-item" >
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['userlist']">User List</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/products">Products</a>
-      </li>
-      <li class="nav-item" >
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['flagsearch']">Search-Coutry-Flag</a>
-      </li>
-      <li class="nav-item" >
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['others']">others</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" *ngIf="!authService.userData" [routerLink]="['login']">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" *ngIf="!authService.userData" [routerLink]="['signup']">SignUp</a>
-      </li>
-     
-      <li class="nav-item" *ngIf="authService.userData as user">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['userprofile']">{{(user.displayName) ? user.displayName : 'User'}}</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" *ngIf="authService.userData" (click)="authService.SignOut()">Logout</a>
-      </li>
+<div class='container'>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- <a class="navbar-brand" [routerLink]="['home']">iTunes Search App</a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['home']">
+            Home
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['search']">Search Songs</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['userlist']">User List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/products">Products</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['flagsearch']">Search-Coutry-Flag</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['studentdashboard']">StudentDashboard</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['others']">Others</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!authService.userData" [routerLink]="['login']">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!authService.userData" [routerLink]="['signup']">SignUp</a>
+        </li>
+       
+        <li class="nav-item" *ngIf="authService.userData as user">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['userprofile']">{{(user.displayName) ? user.displayName : 'User'}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authService.userData" (click)="authService.SignOut()">Logout</a>
+        </li>
+  
+      </ul>
+      <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+    </div>
+  </nav>
+</div>
 
-    </ul>
-    <!-- <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
-  </div>
-</nav>
+
+
+

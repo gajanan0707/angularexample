@@ -35,15 +35,15 @@ export class SearchServiceService {
         .then(
           res => {
             // Success
-            this.results = res.results.map(item => {
-              return new SearchItem(
-                item.trackName,
-                item.artistName,
-                item.trackViewUrl,
-                item.artworkUrl30,
-                item.artistId
-              );
-            });
+            // this.results = res.results.map(item => {
+            //   return new SearchItem(
+            //     item.trackName,
+            //     item.artistName,
+            //     item.trackViewUrl,
+            //     item.artworkUrl30,
+            //     item.artistId
+            //   );
+            // });
             resolve();
           },
           msg => {

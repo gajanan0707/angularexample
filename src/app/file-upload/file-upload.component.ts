@@ -19,6 +19,7 @@ export class FileUploadComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   // Image Preview
   showPreview(event) {
     const file = (event.target as HTMLInputElement).files[0];

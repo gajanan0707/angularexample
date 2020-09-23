@@ -24,19 +24,19 @@
 
       <!-- Calling GoogleAuth Api from AuthService -->
       <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+        <button type="button" class="btn googleBtn" >
           <i class="fab fa-google-plus-g"></i>
           Log in with Google
         </button>
       </div>
 
       <div class="forgotPassword">
-        <span routerLink="/forgot-password">Forgot Password?</span>
+        <span >Forgot Password?</span>
       </div>
     </div>
 
     <div class="redirectToLogin">
-      <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
+      <span>Don't have an account?<span class="redirect" [routerLink]="['signup']"> Sign Up</span></span>
     </div>
 
   </div>

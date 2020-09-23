@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Students List</h1>
+        <!-- It won't show if there is no student data -->
+        <a routerLink="/register-student" class="btn btn-success" *ngIf="hideWhenNoStudent">
+          <i class="fas fa-plus custom-fa-plus"></i>
+          Add Student
+        </a>
+      </div>
+      
+      <div class="pricing-header mx-auto">
+      
+        <!-- Preloader shows before the data loads-->
+        <div class="no-data text-center" *ngIf="preLoader">
+          <img src="assets/preloader.gif" class="preloader-icon" alt="No student">
+        </div>
+      
+        <!-- No data shows when their is no student data available -->
+        <div class="no-data text-center" *ngIf="noData">
+          <img src="assets/no-student.svg" class="nodata-msg" alt="No student">
+          <p class="nodata-msg">No student added yet!</p>
+          <a routerLink="/register-student" class="btn btn-success">
+            <i class="fas fa-plus custom-fa-plus"></i>
+            Add Student
+          </a>
+        </div>
+      
+        <!-- Showing students data -->
+        <div class="table-responsive" *ngIf="hideWhenNoStudent">
+          <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+            <thead>
+              <tr>
+                <!-- <th scope="col">Student Id</th> -->
+                <th scope="col">Student name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile number</th>
+                <th class="text-center" scope="col">Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- *ngFor loop iterates over Student array and fetch the student's data -->
+              <!-- paginate pipe will add pagination in student's list, it won't show if items are less then 7 -->
+              <tr *ngFor="let student of Student | paginate: { itemsPerPage: 7, currentPage: p }; let i = index;">
+                <!-- <th scope="row">{{student.uid}}</th> -->
+                <td>{{student.firstName}} {{student.lastName}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.mobileNumber}}</td>
+                <td class="text-center action-block">
+                  <!-- routerLink="/edit-student/{{student.$key}}" is refered to { path: 'edit-student/:id', component: EditStudentComponent } in app-routing.moudles.ts -->
+                  <i class="far fa-edit" routerLink="/edit-student/{{student.$key}}"></i>
+                  <i class="far fa-trash-alt" (click)="deleteStudent(student)"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Pagination -->
+        <pagination-controls (pageChange)="p = $event" autoHide="true" responsive="true"></pagination-controls>
+      </div>
+</div>

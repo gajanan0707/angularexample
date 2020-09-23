@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Edit Student Details</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+           <div class="btn-group">
+              <!-- goBack() methos to back to previous component -->
+              <button class="btn btn-sm btn-outline-secondary" (click)="goBack()">Go Back</button>
+           </div>
+        </div>
+     </div>
+     
+     
+     <div class="row">
+        <div class="col-lg-12">
+           <div class="pricing-header form-block mx-auto">
+     
+              <!-- Student's Edit Form -->
+              <form [formGroup]="editForm" (ngSubmit)="updateForm()" novalidate>
+                 <div class="row">
+                    <div class="col-lg-5 col-md-12 col-sm-12">
+                       <div class="row">
+                          <div class="col-md-12 mb-3">
+                             <label>First name</label>
+                             <input type="text" formControlName="firstName" class="form-control" required>
+                             <p *ngIf="firstName.touched && firstName.invalid" class="error">
+                                 <sup>*</sup>Please enter firstname
+                             </p>
+                             <p *ngIf="firstName.errors?.minlength" class="error">
+                                 <sup>*</sup>Name shouldn't be less than 2 words
+                             </p>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                             <label>Last name</label>
+                             <input type="text" formControlName="lastName" class="form-control">
+                          </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-md-12 mb-3">
+                             <label>Email</label>
+                             <input type="email" formControlName="email" class="form-control" required>
+                             <p *ngIf="email.touched && email.invalid" class="error"><sup>*</sup>Please provide email</p>
+                             <p *ngIf="email.errors?.pattern" class="error"><sup>*</sup>Please enter correct email</p>
+                          </div>
+                          <div class="col-md-12 mb-3">
+                             <label>Mobile number</label>
+                             <input type="text" formControlName="mobileNumber" class="form-control" required>
+                             <p *ngIf="mobileNumber.touched && mobileNumber.invalid" class="error">
+                                <sup>*</sup>Please provide contact number
+                             </p>
+                             <p *ngIf="mobileNumber.errors?.pattern" class="error">
+                                <sup>*</sup>Use numbers only number
+                             </p>
+                          </div>
+                       </div>
+                       <div class="form-group text-right">
+                          <button type="submit" class="btn btn-success btn-block" [disabled]="!editForm.valid">
+                              Update Student
+                          </button>
+                       </div>
+                    </div>
+                 </div>
+              </form>
+              <!-- Student's Edit Form ends-->
+              
+           </div>
+        </div>
+     </div>
+</div>

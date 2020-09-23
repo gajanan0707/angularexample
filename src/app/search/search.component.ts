@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { SearchServiceService } from '../search-service.service';
+import { AuthService } from '../shared/auth.service';
+import { SearchServiceService } from '../shared/search-service.service';
+
 
 declare var jsPDF: any;
 @Component({

@@ -3,14 +3,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SearchServiceService } from './search-service.service';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { HeaderComponent } from './header/header.component';
 import { RegistrationComponent } from './authntication/registration/registration.component';
 import { LoginComponent } from './authntication/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
-import { AuthService } from './auth.service';
+
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -31,6 +30,13 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { HttpObservablesComponent } from './http-observables/http-observables.component';
 import { CountyService } from './shared/county.service';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { AddStudentComponent } from './studentcrud/add-student/add-student.component';
+import { EditStudentComponent } from './studentcrud/edit-student/edit-student.component';
+import { StudentListComponent } from './studentcrud/student-list/student-list.component';
+import { StudentDashboardComponent } from './studentcrud/student-dashboard/student-dashboard.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchServiceService } from './shared/search-service.service';
+import { AuthService } from './shared/auth.service';
 
 
 
@@ -53,7 +59,12 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     ProductsComponent,
     ProductDetailComponent,
     HttpObservablesComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    AddStudentComponent,
+    EditStudentComponent,
+    StudentListComponent,
+    StudentDashboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -67,10 +78,11 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
 
   ],
-  providers: [SearchServiceService,AuthService,AngularFirestore,CountyService],
+  providers: [SearchServiceService, AuthService, AngularFirestore, CountyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

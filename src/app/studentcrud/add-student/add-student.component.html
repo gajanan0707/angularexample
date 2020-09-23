@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Add Student</h1>
+        <p class="custom-text">A demo CRUD app for <strong>student record management system</strong> built with <strong>Angular7
+            and Firebase5</strong></p>
+      </div>
+      
+      <!-- Student form -->
+      <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" novalidate>
+        <div class="row">
+          <div class="col-lg-5 col-md-12 col-sm-12">
+            <div class="row">
+      
+              <div class="col-md-12 mb-3">
+                <label>First name</label>
+                <input type="text" formControlName="firstName" class="form-control" required>
+                <!-- Showing errors using getter method -->
+                <p *ngIf="firstName.touched && firstName.invalid" class="error"><sup>*</sup>Please enter atleast first name</p>
+                <p *ngIf="firstName.errors?.minlength" class="error"><sup>*</sup>Name shouldn't be less than 2 words</p>
+              </div>
+      
+              <div class="col-md-12 mb-3">
+                <label>Last name</label>
+                <input type="text" formControlName="lastName" class="form-control">
+              </div>
+      
+            </div>
+      
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <label>Email</label>
+                <input type="email" formControlName="email" class="form-control" required>
+                <!-- Showing errors using getter method -->
+                <p *ngIf="email.touched && email.invalid" class="error"><sup>*</sup>Please provide email</p>
+                <p *ngIf="email.errors?.pattern" class="error"><sup>*</sup>Please enter correct email</p>
+              </div>
+      
+              <div class="col-md-12 mb-3">
+                <label>Mobile number</label>
+                <input type="text" formControlName="mobileNumber" class="form-control" required>
+                <!-- Showing errors using getter method -->
+                <p *ngIf="mobileNumber.touched && mobileNumber.invalid" class="error"><sup>*</sup>Please provide contact
+                  number</p>
+                <p *ngIf="mobileNumber.errors?.pattern" class="error"><sup>*</sup>Use numbers only
+                  number</p>
+              </div>
+      
+            </div>
+      
+            <div class="form-group text-right">
+              <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reset</button>
+              <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Add Student</button>
+            </div>
+      
+          </div>
+        </div>
+      </form><!-- Student form ends-->
+    
+</div>

@@ -13,11 +13,6 @@ export class CarousalComponent implements OnInit {
   ngOnInit(): void {
   }
   slideActivate(ngbSlideEvent: NgbSlideEvent) {
-    console.log(ngbSlideEvent.source);
-    console.log(ngbSlideEvent.paused);
-    console.log(NgbSlideEventSource.INDICATOR);
-    console.log(NgbSlideEventSource.ARROW_LEFT);
-    console.log(NgbSlideEventSource.ARROW_RIGHT);
   }
 
 }

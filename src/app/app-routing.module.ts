@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './authntication/login/login.component';
 import { RegistrationComponent } from './authntication/registration/registration.component';
 import { HomeComponent } from './home/home.component';
@@ -11,6 +10,10 @@ import { PdfgenratorComponent } from './pdfgenrator/pdfgenrator.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductsComponent } from './products/products.component';
 import { SearchComponent } from './search/search.component';
+import { AddStudentComponent } from './studentcrud/add-student/add-student.component';
+import { EditStudentComponent } from './studentcrud/edit-student/edit-student.component';
+import { StudentDashboardComponent } from './studentcrud/student-dashboard/student-dashboard.component';
+import { StudentListComponent } from './studentcrud/student-list/student-list.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
 
@@ -26,6 +29,11 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'product-detail/:id', component: ProductDetailComponent },
   { path: 'flagsearch', component: HttpObservablesComponent },
+  { path: 'studentdashboard', component: StudentDashboardComponent},
+  { path: 'register-student', component: AddStudentComponent },
+  { path: 'view-students', component: StudentListComponent },
+  { path: 'edit-student/:id', component: EditStudentComponent },
+  
   { path: '**', component: NoPageFoundComponent }
 ];
 

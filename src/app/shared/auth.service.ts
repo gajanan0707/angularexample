@@ -1,9 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
-import { IUser } from './models/IUser';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { IUser } from '../models/IUser';
 
 
 @Injectable({
