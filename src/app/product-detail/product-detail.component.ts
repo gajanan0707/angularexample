@@ -7,9 +7,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  product_id: string;
+ 
   constructor(private actRoute: ActivatedRoute) { 
-    this.product_id = this.actRoute.snapshot.params.id;
+    
   }
 
   ngOnInit(): void {

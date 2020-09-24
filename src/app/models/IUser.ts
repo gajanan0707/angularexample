@@ -1,8 +1,10 @@
+import { firestore } from 'firebase';
 
 export interface IUser {
     uid: string;
     email: string;
-    displayName: string;
+    displayName?: string;
     photoURL: string;
     emailVerified: boolean;
+
 }

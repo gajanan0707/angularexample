@@ -4,5 +4,11 @@ service cloud.firestore {
    match /studentsdata/{document=**} {
           allow read, write;
     }
+      match /blogs/{document=**} {
+          allow read, write;
+    }
+      match /users/{document=**} {
+          allow read, write;
+    }
   }
 }

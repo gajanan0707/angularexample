@@ -47,8 +47,9 @@
                 <td>{{student.mobileNumber}}</td>
                 <td class="text-center action-block">
                   <!-- routerLink="/edit-student/{{student.$key}}" is refered to { path: 'edit-student/:id', component: EditStudentComponent } in app-routing.moudles.ts -->
-                  <i class="far fa-edit" routerLink="/edit-student/{{student.$key}}"></i>
-                  <i class="far fa-trash-alt" (click)="deleteStudent(student)"></i></td>
+                  <i class="far fa-edit" routerLink="edit-student/{{student.$uid}}"></i>
+                  <i class="far fa-trash-alt" (click)="deleteStudent(student)">Delete</i>
+                </td>
               </tr>
             </tbody>
           </table>

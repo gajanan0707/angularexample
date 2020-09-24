@@ -3,4 +3,12 @@
     <h1 class="display-3">iTunes Search App</h1>
   </div> -->
   <app-carousal></app-carousal>
+  <div>
+    <div [@popOverState]="stateName">
+      <p>Hello! I'm a helpful message.</p>
+</div>
+<button (click)="toggle()">Toggle PopOver</button>
+  </div>
+
+
 </div>

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './authntication/login/login.component';
 import { RegistrationComponent } from './authntication/registration/registration.component';
+
+import { BlogComponent } from './blog/blog.component';
 import { HomeComponent } from './home/home.component';
 import { HttpObservablesComponent } from './http-observables/http-observables.component';
 import { MulticheckboxComponent } from './multicheckbox/multicheckbox.component';
@@ -33,7 +35,8 @@ const routes: Routes = [
   { path: 'register-student', component: AddStudentComponent },
   { path: 'view-students', component: StudentListComponent },
   { path: 'edit-student/:id', component: EditStudentComponent },
-  
+  { path: 'blogs', component: BlogComponent },
+
   { path: '**', component: NoPageFoundComponent }
 ];
 

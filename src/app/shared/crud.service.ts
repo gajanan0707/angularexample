@@ -48,7 +48,7 @@ export class CrudService {
 
   // Delete Student Object
   DeleteStudent(id: string) { 
-    this.studentRef = this.db.object('studentsdata/'+id);
-    this.studentRef.remove();
+    this.studentRef = this.firestore.collection('studentsdata/'+id);
+    this.studentRef.delete();
   }
 }

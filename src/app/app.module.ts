@@ -37,6 +37,8 @@ import { StudentDashboardComponent } from './studentcrud/student-dashboard/stude
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchServiceService } from './shared/search-service.service';
 import { AuthService } from './shared/auth.service';
+import { BlogComponent } from './blog/blog.component';
+import { BlogService } from './shared/blog.service';
 
 
 
@@ -64,6 +66,8 @@ import { AuthService } from './shared/auth.service';
     EditStudentComponent,
     StudentListComponent,
     StudentDashboardComponent,
+    BlogComponent,
+
 
   ],
   imports: [
@@ -79,10 +83,11 @@ import { AuthService } from './shared/auth.service';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    
 
   ],
-  providers: [SearchServiceService, AuthService, AngularFirestore, CountyService],
+  providers: [SearchServiceService, AuthService, AngularFirestore, CountyService,BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
