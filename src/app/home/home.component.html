@@ -2,13 +2,18 @@
   <!-- <div class="jumbotron">
     <h1 class="display-3">iTunes Search App</h1>
   </div> -->
+  <code style="text-align:center;"  >Current Version: {{ver}}</code>
   <app-carousal></app-carousal>
-  <div>
+  <div style="text-align:center;">
     <div [@popOverState]="stateName">
-      <p>Hello! I'm a helpful message.</p>
+      <code>Hello! I'm a helpful message.</code>
 </div>
-<button (click)="toggle()">Toggle PopOver</button>
-  </div>
+<div style="text-align:center;">
+  <button  (click)="toggle()">Toggle PopOver</button>
+</div>
 
+  </div>
+  
+  <div style="text-align:center;"><code>observable|async</code>: Time: {{ time | async }}</div>
 
 </div>

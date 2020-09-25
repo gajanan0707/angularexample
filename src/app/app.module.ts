@@ -39,8 +39,9 @@ import { SearchServiceService } from './shared/search-service.service';
 import { AuthService } from './shared/auth.service';
 import { BlogComponent } from './blog/blog.component';
 import { BlogService } from './shared/blog.service';
-
-
+import { BlogDetailsComponent } from './blog-details/blog-details.component';
+import { AddBlogComponent } from './add-blog/add-blog.component';
+import { ResetPasswordComponent } from './authntication/reset-password/reset-password.component';
 
 
 
@@ -67,6 +68,10 @@ import { BlogService } from './shared/blog.service';
     StudentListComponent,
     StudentDashboardComponent,
     BlogComponent,
+    BlogDetailsComponent,
+    AddBlogComponent,
+    ResetPasswordComponent,
+
 
 
   ],
@@ -84,10 +89,11 @@ import { BlogService } from './shared/blog.service';
     FormsModule,
     NgbModule,
     NgxPaginationModule,
-    
+
+
 
   ],
-  providers: [SearchServiceService, AuthService, AngularFirestore, CountyService,BlogService],
+  providers: [SearchServiceService, AuthService, AngularFirestore, CountyService, BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

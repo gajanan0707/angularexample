@@ -7,6 +7,8 @@ import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@ang
   styleUrls: ['./multicheckbox.component.scss']
 })
 export class MulticheckboxComponent implements OnInit {
+
+  fruit = ['Apples', 'Oranges', 'Bananas', 'Limes', 'Lemons'];
   Data: Array<any> = [
     { name: 'Pear', value: 'pear' },
     { name: 'Plum', value: 'plum' },

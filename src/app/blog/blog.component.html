@@ -1,32 +1,25 @@
 <div class="container">
   <!-- Page Content -->
-    <div class="data">
+  <div class="data">
     <div class="row " *ngIf='blogdata'>
 
       <!-- Blog Entries Column -->
-      <div class="col-md-8" >
+      <div class="col-md-8">
         <!-- Blog Post -->
-        <div class="card mb-4 "  *ngFor='let data of blogdata'>
+        <div class="card mb-4 " *ngFor='let data of blogdata'>
           <img class="card-img-top " src="{{data.ImageUrl}}" alt="Card image cap">
           <div class="card-body">
-            <h2 class="card-title">{{data.Title}}</h2>
-            <p class="card-text">{{data.Description}}</p>
+            <h2 class="card-title linkclass" (click)="getclick(data.BlogId)">{{data.Title}}</h2>
+            <p class="card-text descriptionclass">{{data.Description}}</p>
             <p>
-                <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
-                        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-                        Read More
-                </button>
-              </p>
-              <div id="collapseExample" [ngbCollapse]="isCollapsed">
-                <div class="card">
-                  <div class="card-body">
-                    {{data.Description}}
-                  </div>
-                </div>
-              </div>
+              <button type="button" class="btn btn-outline-primary" (click)="getclick(data.BlogId)">
+                Read More
+              </button>
+            </p>
+
           </div>
           <div class="card-footer text-muted">
-            Posted on {{data.CreatedOn * 1000 | date:'dd-MM'}} by
+            Posted on {{data.CreatedOn.seconds * 1000 | date:'MM-dd-yyyy' }} by
             <a href="#">{{data.Author}}</a>
           </div>
         </div>
@@ -108,7 +101,5 @@
     </div>
     <!-- /.row -->
   </div>
-  </div>
-  <!-- /.container -->
-
-
+</div>
+<!-- /.container -->

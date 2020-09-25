@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+      <div class="col-10">
+        <div class="jumbotron">
+          <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text"  class="form-control" formControlName="Title" [ngClass]="{'is-invalid':form.get('Title').touched && form.get('Title').invalid}" required />
+            </div>
+            <div class="form-group">
+              <label for="author">Author</label>
+              <input type="text" class="form-control" formControlName="Author" [ngClass]="{'is-invalid':form.get('Author').touched && form.get('Author').invalid}" required />
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" class="form-control" formControlName="Description" [ngClass]="{'is-invalid':form.get('Description').touched && form.get('Description').invalid}" required/>
+            </div>
+            <!-- <div class="form-group">
+            <input  type="text" class="form-control" class="form-control" ngbDatepicker #d="ngbDatepicker"/>
+             <button (click)="d.toggle()">Select Date</button>
+            </div> -->
+            <div class="form-group">
+                <input type="file" class="form-control"formControlName="ImageUrl"/>
+            </div>       
+            <div class="form-group">
+              <button class="btn btn-primary" >Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  

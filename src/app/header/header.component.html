@@ -25,6 +25,9 @@
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" [routerLink]="['blogs']">Blogs</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link blogcreateclass" routerLinkActive="active" (click)="crateBlog()">Create Blog</a>
+        </li>
         <li class="nav-item" >
           <a class="nav-link" routerLinkActive="active" [routerLink]="['flagsearch']">Search-Coutry-Flag</a>
         </li>
@@ -42,10 +45,10 @@
         </li>
        
         <li class="nav-item" *ngIf="authService.userData as user">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['userprofile']">{{(user.displayName) ? user.displayName : 'User'}}</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['userprofile']">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="authService.userData" (click)="authService.SignOut()">Logout</a>
+          <a class="nav-link logoutclass" *ngIf="authService.userData" (click)="authService.SignOut()">Logout</a>
         </li>
   
       </ul>

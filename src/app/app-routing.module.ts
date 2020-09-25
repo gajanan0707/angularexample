@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddBlogComponent } from './add-blog/add-blog.component';
 import { LoginComponent } from './authntication/login/login.component';
 import { RegistrationComponent } from './authntication/registration/registration.component';
+import { ResetPasswordComponent } from './authntication/reset-password/reset-password.component';
+import { BlogDetailsComponent } from './blog-details/blog-details.component';
 
 import { BlogComponent } from './blog/blog.component';
 import { HomeComponent } from './home/home.component';
@@ -36,7 +39,9 @@ const routes: Routes = [
   { path: 'view-students', component: StudentListComponent },
   { path: 'edit-student/:id', component: EditStudentComponent },
   { path: 'blogs', component: BlogComponent },
-
+  { path: 'blog-details/:BlogId', component: BlogDetailsComponent },
+  { path: 'add-blog', component:AddBlogComponent},
+  { path: 'reset-password', component: ResetPasswordComponent },
   { path: '**', component: NoPageFoundComponent }
 ];
 

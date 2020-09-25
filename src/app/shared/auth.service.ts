@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { IUser } from '../models/IUser';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -12,10 +13,13 @@ import { IUser } from '../models/IUser';
 export class AuthService {
   userData: any;
   userDoc: AngularFirestoreDocument
+  public currentUser: Observable<IUser>;
+  private currentUserSubject: BehaviorSubject<IUser>;
   constructor(public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone, private toastr: ToastrService) {
+      
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
@@ -26,6 +30,11 @@ export class AuthService {
         JSON.parse(localStorage.getItem('user'));
       }
     })
+    this.currentUserSubject = new BehaviorSubject<IUser>(JSON.parse(localStorage.getItem('user')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+  public get currentUserValue(): IUser {
+    return this.currentUserSubject.value;
   }
 
 
@@ -94,6 +103,31 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['login']);
     })
+  }
+
+  async sendPasswordResetEmail(passwordResetEmail: string) {
+    return await this.afAuth.sendPasswordResetEmail(passwordResetEmail)
+      .then(() => {
+        this.router.navigate(['login']);
+        this.showSuccess();
+      })
+
+  }
+  showSuccess() {
+    this.toastr.success('Password Link Sent', 'Please check your registered email', {
+      timeOut: 20000
+    });
+  }
+  showError() {
+    this.toastr.info('Email Verfication Link Sent.Verify Using the link', 'Please check your registered email', {
+      timeOut: 5000
+    });
+  }
+
+  showerrorForResetMail() {
+    this.toastr.error('Error while sending Reset Password Link', 'Error ', {
+      timeOut: 5000
+    });
   }
 
 }

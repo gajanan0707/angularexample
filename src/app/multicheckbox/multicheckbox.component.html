@@ -14,11 +14,19 @@
   
     <input type="submit" value="Submit">
   </form>
-  
+  <div *ngFor="let f of fruit"> {{f}} </div>
+<select required>
+<option *ngFor="let f of fruit" [value]="f"> {{f}} </option>
+</select>
 </div><br>
+
+
 <div class="container">
   <app-file-upload></app-file-upload>
 </div>
+
+
+
 
 
 

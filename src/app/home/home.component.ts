@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, VERSION } from '@angular/core';
 import {
   trigger,
   state,
@@ -6,6 +6,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { Observable, Subscriber } from 'rxjs';
 
 
 @Component({
@@ -26,19 +27,18 @@ import {
   ]
 })
 export class HomeComponent implements OnInit {
+  time = new Observable<string>((observer: Subscriber<string>) => {
+    setInterval(() => observer.next(new Date().toString()), 1000);
+    });
   show = false;
-  constructor() { 
-    
+  ver = VERSION.full;
+  constructor() {    
   }
-
   ngOnInit(): void {
   }
-
   get stateName() {
     return this.show ? 'show' : 'hide'
   }
-
-
   toggle() {
     this.show = !this.show;
   }

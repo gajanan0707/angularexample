@@ -6,3 +6,11 @@
   .data{
     padding: 70px 0 0 8px;
 }
+.linkclass{
+  cursor: pointer;
+}
+.descriptionclass{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+}
