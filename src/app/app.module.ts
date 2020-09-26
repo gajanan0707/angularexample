@@ -42,7 +42,13 @@ import { BlogService } from './shared/blog.service';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
 import { AddBlogComponent } from './add-blog/add-blog.component';
 import { ResetPasswordComponent } from './authntication/reset-password/reset-password.component';
-
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ChartsModule } from 'ng2-charts';
+import { MyBarChartComponent } from './chart/my-bar-chart/my-bar-chart.component';
+import { MyDoughnutChartComponent } from './chart/my-doughnut-chart/my-doughnut-chart.component';
+import { MyRadarChartComponent } from './chart/my-radar-chart/my-radar-chart.component';
+import { MyPieChartComponent } from './chart/my-pie-chart/my-pie-chart.component';
+import { BarChartHomeComponent } from './chart/bar-chart-home/bar-chart-home.component';
 
 
 @NgModule({
@@ -71,6 +77,11 @@ import { ResetPasswordComponent } from './authntication/reset-password/reset-pas
     BlogDetailsComponent,
     AddBlogComponent,
     ResetPasswordComponent,
+    MyBarChartComponent,
+    MyDoughnutChartComponent,
+    MyRadarChartComponent,
+    MyPieChartComponent,
+    BarChartHomeComponent,
 
 
 
@@ -89,9 +100,8 @@ import { ResetPasswordComponent } from './authntication/reset-password/reset-pas
     FormsModule,
     NgbModule,
     NgxPaginationModule,
-
-
-
+    AngularFireStorageModule,
+    ChartsModule
   ],
   providers: [SearchServiceService, AuthService, AngularFirestore, CountyService, BlogService],
   bootstrap: [AppComponent]

@@ -6,10 +6,12 @@
   </div>
 
     <form class="form-inline" *ngIf="authService.userData">
+      <h1> Search Songs</h1>
       <div class="form-group" >
+       
         <input type="search"
                class="form-control"
-               placeholder="Enter search string"
+               placeholder="Enter search Songs Name"
                #search>
       </div>
       <button type="button"  class="btn btn-primary" (click)="doSearch(search.value)">Search</button>

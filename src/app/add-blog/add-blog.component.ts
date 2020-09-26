@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { BlogService } from '../shared/blog.service';
+
 
 
 
@@ -19,9 +23,23 @@ export class AddBlogComponent implements OnInit {
     Description: new FormControl('', Validators.required),
     ImageUrl: new FormControl('')
   });
-  constructor(public blogservice: BlogService, public router: Router) { }
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  uploadProgress: Observable<number>;
+  downloadURL: any;
+  uploadState: Observable<string>;
 
+  constructor(public blogservice: BlogService, public router: Router,private afStorage: AngularFireStorage) { }
+  
   ngOnInit() {
+  }
+  upload(event) {
+    const id = Math.random().toString(36).substring(2);
+    this.ref = this.afStorage.ref(id);
+    this.task = this.ref.put(event.target.files[0]);
+    this.uploadState = this.task.snapshotChanges().pipe(map(s => s.state));
+    this.uploadProgress = this.task.percentageChanges();
+    this.downloadURL = this.task;
   }
 
   onSubmit() {
