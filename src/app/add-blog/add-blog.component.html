@@ -1,61 +1,65 @@
 <div class="container">
-    <div class="row">
-      <div class="col-10">
-        <div class="jumbotron">
-          <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text"  class="form-control" formControlName="Title" [ngClass]="{'is-invalid':form.get('Title').touched && form.get('Title').invalid}" required />
-            </div>
-            <div class="form-group">
-              <label for="author">Author</label>
-              <input type="text" class="form-control" formControlName="Author" [ngClass]="{'is-invalid':form.get('Author').touched && form.get('Author').invalid}" required />
-            </div>
-            <div class="form-group">
-              <label for="description">Description</label>
-              <input type="text" class="form-control" formControlName="Description" [ngClass]="{'is-invalid':form.get('Description').touched && form.get('Description').invalid}" required/>
-            </div>
-            <!-- <div class="form-group">
+  <div class="row">
+    <div class="col-10">
+      <div class="jumbotron">
+        <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" formControlName="Title"
+              [ngClass]="{'is-invalid':form.get('Title').touched && form.get('Title').invalid}" required />
+          </div>
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" formControlName="Author"
+              [ngClass]="{'is-invalid':form.get('Author').touched && form.get('Author').invalid}" required />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" formControlName="Description"
+              [ngClass]="{'is-invalid':form.get('Description').touched && form.get('Description').invalid}" required />
+          </div>
+          <!-- <div class="form-group">
             <input  type="text" class="form-control" class="form-control" ngbDatepicker #d="ngbDatepicker"/>
              <button (click)="d.toggle()">Select Date</button>
             </div> -->
-            <div class="form-group">
+          <!-- <div class="form-group">
                 <input type="file" class="form-control"formControlName="ImageUrl"/>
-            </div>       
-            <div class="form-group">
-              <button class="btn btn-primary" >Submit</button>
+            </div>        -->
+
+          <div class="card">
+
+            <div class="card-body form-group">
+              <h5 class="card-title">Select a file for upload:</h5>
+              <input type="file" (change)="upload($event)" class="form-control" formControlName="ImageUrl"
+                accept=".png,.jpg" />
+              <br><br>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                  [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <br>
+              <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+              </div>
+              <br>
+              <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+                <button type="button" class="btn btn-primary" (click)="task.pause()"
+                  [disabled]="state === 'paused'">Pause</button>
+                <button type="button" class="btn btn-primary" (click)="task.cancel()"
+                  [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+                <button type="button" class="btn btn-primary" (click)="task.resume()"
+                  [disabled]="state === 'running'">Resume</button>
+              </div>
             </div>
 
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-            <div class="container">
-  <div class="card">
-    <div class="card-header">
-      Firebase Cloud Storage & Angular 5
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Select a file for upload:</h5>
-      <input type="file" (change)="upload($event)" accept=".png,.jpg" />
-      <br><br>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <br>
-      <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
-          File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
-      </div>
-      <br>
-      <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
-          <button type="button" class="btn btn-primary" (click)="task.pause()" [disabled]="state === 'paused'">Pause</button>
-          <button type="button" class="btn btn-primary" (click)="task.cancel()" [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
-          <button type="button" class="btn btn-primary" (click)="task.resume()" [disabled]="state === 'running'">Resume</button>
-      </div>
-    </div>
-  </div>
 </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-  
